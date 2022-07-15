@@ -7,9 +7,9 @@ interface BoardProps {
 }
 
 export const Board: FC<BoardProps> = ({ board }) => (
-  <div className="m-6 grid gap-x-2 grid-cols-[repeat(5,0fr)] justify-center">
-    {board.map((row, rowIdx) => (
-      <Square value={board[rowIdx]} key={rowIdx} />
+  <div className="m-6 grid grid-cols-[repeat(5,0fr)] justify-center">
+    {board.map((_, idx) => (
+      <Square squareIdx={idx} value={board[idx]} key={idx} />
     ))}
   </div>
 );
