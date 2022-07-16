@@ -12,22 +12,23 @@ export const Keyboard = () => {
   const board = useSelector((s: RootState) => s.board.board);
   const position = useSelector((s: RootState) => s.board.position);
   const rowIndex = useSelector((s: RootState) => s.board.rowIndex);
+  const todayWord = useSelector((s: RootState) => s.board.todayWord);
 
   const thisRow = Math.floor(position / 5);
+  const guessWord = board
+    .slice(position - BOARD_COL, position)
+    .join('')
+    .toUpperCase();
 
   const dispatch = useDispatch();
 
-  const endGameCondition = (pattern: string) => words.includes(pattern);
+  const wordIsValid = (pattern: string) => words.includes(pattern.toLowerCase());
+  const endGameCondition = (pattern: string) => todayWord === pattern;
   const endGameHandle = () => {
     dispatch(resetState());
   };
 
   const gameConditionHandle = () => {
-    const guessWord = board
-      .slice(position - BOARD_COL, position)
-      .join('')
-      .toLowerCase();
-
     if (endGameCondition(guessWord)) {
       alert('End game: ');
       endGameHandle();
@@ -48,10 +49,19 @@ export const Keyboard = () => {
   };
 
   const enterHandle = () => {
+    if (!wordIsValid(guessWord)) {
+      alert('Invalid');
+      return;
+    }
+
     if (position === (rowIndex + 1) * BOARD_COL) {
-      if (!gameConditionHandle()) dispatch(setRowIndex(1));
-    } else if (position === BOARD_COL * BOARD_ROW) {
-      gameConditionHandle();
+      if (!gameConditionHandle())
+        if (position === BOARD_COL * BOARD_ROW) {
+          alert(todayWord);
+          endGameHandle();
+        } else {
+          dispatch(setRowIndex(1));
+        }
     }
   };
 

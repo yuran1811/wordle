@@ -1,1 +1,1 @@
-const c=require("tailwindcss/colors");module.exports={mode:"jit",content:["./index.html","./src/**/*.{vue,js,ts,jsx,tsx}"],theme:{colors:{...c},extend:{animation:{flip:"flip 1s ease-in-out"},keyframes:{flip:{"0%":{transform:"rotateX(0deg)"},"100%":{transform:"rotateX(360deg)"}}}}}};
+const c=require("tailwindcss/colors");module.exports={mode:"jit",content:["./index.html","./src/**/*.{vue,js,ts,jsx,tsx}"],theme:{colors:{...c},extend:{animation:{flip:"flip 1s ease-in-out"},keyframes:{flip:{"0%":{transform:"rotateX(0deg)"},"100%":{transform:"rotateX(360deg)"}}}}}}
