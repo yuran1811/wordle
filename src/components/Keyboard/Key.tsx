@@ -1,22 +1,18 @@
-import { FC, memo } from 'react';
+import { type FC, memo } from 'react';
 
 interface KeyProps {
   label: string;
   setLetter: () => void;
 }
 
-export const Key: FC<KeyProps> = (props) => {
-  const { label, setLetter, ...otherProps } = props;
-
-  return (
-    <div
-      {...otherProps}
-      className="cursor-pointer flexcenter w-[3.8rem] h-[3.8rem] p-2 m-1 bg-transparent text-white border-[2px] border-blue-300 rounded-[1rem]"
-      onClick={setLetter}
-    >
-      <div className="text-center">{label.toUpperCase()}</div>
-    </div>
-  );
-};
+export const Key: FC<KeyProps> = ({ label, setLetter, ...otherProps }) => (
+  <div
+    {...otherProps}
+    className="flexcenter isAnimated m-1 size-10 cursor-pointer rounded-lg border-2 border-slate-500 bg-transparent p-2 text-white hover:scale-110"
+    onClick={setLetter}
+  >
+    <div className="text-center text-xl">{label.toUpperCase()}</div>
+  </div>
+);
 
 export default memo(Key);

@@ -1,5 +1,6 @@
-import { BoardType } from '@shared/types/redux';
-import { FC } from 'react';
+import type { FC } from 'react';
+
+import type { BoardType } from '@shared/types/redux';
 import { Square } from './Square';
 
 interface BoardProps {
@@ -7,9 +8,9 @@ interface BoardProps {
 }
 
 export const Board: FC<BoardProps> = ({ board }) => (
-  <div className="m-6 grid grid-cols-[repeat(5,0fr)] justify-center">
+  <div className="m-2 grid grid-cols-[repeat(5,0fr)] justify-center">
     {board.map((_, idx) => (
-      <Square squareIdx={idx} value={board[idx]} key={idx} />
+      <Square key={idx} squareIdx={idx} value={_} />
     ))}
   </div>
 );

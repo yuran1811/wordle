@@ -5,8 +5,5 @@ export interface BoardState {
   position: number;
   rowIndex: number;
   todayWord: string;
-}
-
-export interface RootState {
-  board: BoardState;
+  isEnd: boolean;
 }
