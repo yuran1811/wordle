@@ -1,5 +1,5 @@
 <h1 align="center">wordle</h1>
-<p align="center" style="font-size:16px"><strong></strong></p>
+<p align="center" style="font-size:16px"><strong>A <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a> Clone Site</strong></p>
 <p align="center">  
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
 </p>
@@ -12,7 +12,7 @@
   <img alt="Code Size" src="https://img.shields.io/github/languages/code-size/yuran1811/wordle">
 </p>
 
-<div align="center"><a href="" target="_blank">Live Demo</a></div>
+<div align="center"><a href="https://yuran1811.github.io/wordle/" target="_blank">Live Demo</a></div>
 
 ## Tech Stack
 
@@ -20,10 +20,7 @@
 
 ## Screenshots
 
-<div style="display:flex;gap:12px;justify-content:center">
-	<img src="" style="width:45%;max-width:380px">
-	<img src="" style="width:45%;max-width:380px">
-</div>
+![](./public/screenshots/gameplay.png)
 
 ## Quick Start
 
@@ -72,6 +69,17 @@ yarn dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
 
-## References
+**Update the words list**
 
-- [Word list](https://byjus.com/english/5-letter-words/)
+- Create or edit the `./scripts/data.txt` file (words are separated from space `\s` or newline `\n`)
+- Open terminal in `wordle` dir, run
+
+```bash
+npm run data:prepare
+```
+
+or
+
+```bash
+yarn data:prepare
+```
